@@ -1,12 +1,20 @@
 package com.kouger.backend.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
+
+@Document(collection = "users")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class User {
-    int a = 5;
-    int b = 10;
-
-    int c = add(a, b);
-
-    public int add(int a, int b) {
-        return a + b;
-    }
+    @Id
+    private String id;
+    private String username;
+    private String email;
+    private String password;
 }
